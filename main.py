@@ -24,3 +24,7 @@ model = Sequential([
     Dense(1000, activation="relu"),
     Dense(10, activation="softmax")
 ])
+
+model.compile(loss="sparse_categorical_crossentropy", optimizer="adam", metrics=["accuracy"])
+model.fit(x_train, y_train, batch_size=64, epochs=10, validation_data=(x_val, y_val))
+model.save("cifar10_model.keras")
