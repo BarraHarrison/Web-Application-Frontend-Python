@@ -14,5 +14,14 @@ def main():
     if file:
         image = Image.open(file)
         st.image(image, use_column_width=True)
+
+        resized_image = image.resize((32, 32))
+        image_array = np.array(resized_image / 255)
+        image_array = image_array.reshape((1, 32, 32, 3))
+
+        model = tf.keras.models.load_model("cifar10_model.keras")
+
+        predictions = model.predict(image_array)
+        cifar10_classes = ["airplane", "automobile", "bird", "cat", "deer", "frog", "horse", "ship", "truck"]
     else:
         st.text("You have not uploaded an image yet.")
