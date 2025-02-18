@@ -22,7 +22,7 @@ def main():
         model = tf.keras.models.load_model("cifar10_model.keras")
 
         predictions = model.predict(image_array)
-        cifar10_classes = ["airplane", "automobile", "bird", "cat", "deer", "frog", "horse", "ship", "truck"]
+        cifar10_classes = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
 
         fig, ax = plt.subplots()
         y_position = np.arange(len(cifar10_classes))
