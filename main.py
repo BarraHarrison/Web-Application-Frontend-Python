@@ -37,3 +37,6 @@ def main():
 
     else:
         st.text("You have not uploaded an image yet.")
+
+if __name__ == "__main__":
+    main()
