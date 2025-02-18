@@ -16,7 +16,7 @@ def main():
         st.image(image, use_container_width=True)
 
         resized_image = image.resize((32, 32))
-        image_array = np.array(resized_image / 255.0)
+        image_array = np.array(resized_image) / 255.0
         image_array = image_array.reshape((1, 32, 32, 3))
 
         model = tf.keras.models.load_model("cifar10_model.keras")
