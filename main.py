@@ -23,5 +23,17 @@ def main():
 
         predictions = model.predict(image_array)
         cifar10_classes = ["airplane", "automobile", "bird", "cat", "deer", "frog", "horse", "ship", "truck"]
+
+        fig, ax = plt.subplots()
+        y_position = np.arange(len(cifar10_classes))
+        ax.barh(y_position, predictions[0], align="center")
+        ax.set_yticks(y_position)
+        ax.set_yticklabels(cifar10_classes)
+        ax.invert_yaxis()
+        ax.set_xlabel("Probability")
+        ax.set_title("CIFAR10 Predictions")
+
+        st.pyplot(fig)
+
     else:
         st.text("You have not uploaded an image yet.")
